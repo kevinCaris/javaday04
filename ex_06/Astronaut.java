@@ -1,6 +1,4 @@
-package ex_04;
-
-import ex_03.chocolate.Mars;
+package ex_06;
 
 public class Astronaut {
     private static int counter = 0;
@@ -15,8 +13,16 @@ public class Astronaut {
         System.out.println(name + " ready for launch !");
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getId() {
         return id;
+    }
+
+    public ex_03.planet.Mars getDestination() {
+        return destination;
     }
 
     public int getSnacks() {
@@ -31,8 +37,8 @@ public class Astronaut {
         if (param instanceof ex_03.planet.Mars) {
             System.out.println(name + ": started a mission !");
             destination = (ex_03.planet.Mars) param;
-        } else if (param instanceof Mars) {
-            System.out.println(name + " is eating mars number " + ((Mars) param).getId() + ".");
+        } else if (param instanceof ex_03.chocolate.Mars) {
+            System.out.println(name + " is eating mars number " + ((ex_03.chocolate.Mars) param).getId() + ".");
             snacks++;
         }
     }
@@ -46,11 +52,5 @@ public class Astronaut {
             System.out.println(name + ": I may have done nothing, but I have " + snacks + " Mars to eat at least !");
         }
         super.finalize();
-    }
-    public static void main(String[] args) {
-        Astronaut mutta = new Astronaut("Mutta");
-        Astronaut hibito = new Astronaut("Hibito");
-        System.out.println(mutta.getId());
-        System.out.println(hibito.getId());
     }
 }
